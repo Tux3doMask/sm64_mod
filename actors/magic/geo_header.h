@@ -1,0 +1,17 @@
+extern const GeoLayout magic_geo[];
+extern Lights1 magic_circle_lights;
+extern Lights1 magic_square_lights;
+extern Lights1 magic_triangle_lights;
+extern Vtx magic_Base_mesh_layer_1_vtx_0[22];
+extern Gfx magic_Base_mesh_layer_1_tri_0[];
+extern Vtx magic_Square_mesh_layer_1_vtx_0[11];
+extern Gfx magic_Square_mesh_layer_1_tri_0[];
+extern Vtx magic_Triangle_mesh_layer_1_vtx_0[9];
+extern Gfx magic_Triangle_mesh_layer_1_tri_0[];
+extern Gfx mat_magic_circle[];
+extern Gfx mat_magic_square[];
+extern Gfx mat_magic_triangle[];
+extern Gfx magic_Base_mesh_layer_1[];
+extern Gfx magic_Square_mesh_layer_1[];
+extern Gfx magic_Triangle_mesh_layer_1[];
+extern Gfx magic_material_revert_render_settings[];

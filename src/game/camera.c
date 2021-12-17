@@ -457,79 +457,7 @@ extern u8 sZoomOutAreaMasks[];
 /**
  * Starts a camera shake triggered by an interaction
  */
-void set_camera_shake_from_hit(s16 shake) {
-    switch (shake) {
-        // Makes the camera stop for a bit
-        case SHAKE_ATTACK:
-            gLakituState.focHSpeed = 0;
-            gLakituState.posHSpeed = 0;
-            break;
 
-        case SHAKE_FALL_DAMAGE:
-            set_camera_pitch_shake(0x60, 0x3, 0x8000);
-            set_camera_roll_shake(0x60, 0x3, 0x8000);
-            break;
-
-        case SHAKE_GROUND_POUND:
-            set_camera_pitch_shake(0x60, 0xC, 0x8000);
-            break;
-
-        case SHAKE_SMALL_DAMAGE:
-            if (sMarioCamState->action & (ACT_FLAG_SWIMMING | ACT_FLAG_METAL_WATER)) {
-                set_camera_yaw_shake(0x200, 0x10, 0x1000);
-                set_camera_roll_shake(0x400, 0x20, 0x1000);
-                set_fov_shake(0x100, 0x30, 0x8000);
-            } else {
-                set_camera_yaw_shake(0x80, 0x8, 0x4000);
-                set_camera_roll_shake(0x80, 0x8, 0x4000);
-                set_fov_shake(0x100, 0x30, 0x8000);
-            }
-
-            gLakituState.focHSpeed = 0;
-            gLakituState.posHSpeed = 0;
-            break;
-
-        case SHAKE_MED_DAMAGE:
-            if (sMarioCamState->action & (ACT_FLAG_SWIMMING | ACT_FLAG_METAL_WATER)) {
-                set_camera_yaw_shake(0x400, 0x20, 0x1000);
-                set_camera_roll_shake(0x600, 0x30, 0x1000);
-                set_fov_shake(0x180, 0x40, 0x8000);
-            } else {
-                set_camera_yaw_shake(0x100, 0x10, 0x4000);
-                set_camera_roll_shake(0x100, 0x10, 0x4000);
-                set_fov_shake(0x180, 0x40, 0x8000);
-            }
-
-            gLakituState.focHSpeed = 0;
-            gLakituState.posHSpeed = 0;
-            break;
-
-        case SHAKE_LARGE_DAMAGE:
-            if (sMarioCamState->action & (ACT_FLAG_SWIMMING | ACT_FLAG_METAL_WATER)) {
-                set_camera_yaw_shake(0x600, 0x30, 0x1000);
-                set_camera_roll_shake(0x800, 0x40, 0x1000);
-                set_fov_shake(0x200, 0x50, 0x8000);
-            } else {
-                set_camera_yaw_shake(0x180, 0x20, 0x4000);
-                set_camera_roll_shake(0x200, 0x20, 0x4000);
-                set_fov_shake(0x200, 0x50, 0x8000);
-            }
-
-            gLakituState.focHSpeed = 0;
-            gLakituState.posHSpeed = 0;
-            break;
-
-        case SHAKE_HIT_FROM_BELOW:
-            gLakituState.focHSpeed = 0.07f;
-            gLakituState.posHSpeed = 0.07f;
-            break;
-
-        case SHAKE_SHOCK:
-            set_camera_pitch_shake(random_float() * 64.f, 0x8, 0x8000);
-            set_camera_yaw_shake(random_float() * 64.f, 0x8, 0x8000);
-            break;
-    }
-}
 
 /**
  * Start a shake from the environment
@@ -5611,9 +5539,7 @@ struct CameraTrigger sCamRR[] = {
  * to free_roam when Mario is not walking up the tower.
  */
 struct CameraTrigger sCamBOB[] = {
-    {  1, cam_bob_tower, 2468, 2720, -4608, 3263, 1696, 3072, 0 },
-    { -1, cam_bob_default_free_roam, 0, 0, 0, 0, 0, 0, 0 },
-    NULL_TRIGGER
+	NULL_TRIGGER
 };
 
 /**
@@ -9950,26 +9876,26 @@ u8 sDanceCutsceneIndexTable[][4] = {
  * and if the result is non-zero, the camera will zoom out.
  */
 u8 sZoomOutAreaMasks[] = {
-    ZOOMOUT_AREA_MASK(0,0,0,0, 0,0,0,0), // Unused         | Unused
-    ZOOMOUT_AREA_MASK(0,0,0,0, 0,0,0,0), // Unused         | Unused
-    ZOOMOUT_AREA_MASK(0,0,0,0, 1,0,0,0), // BBH            | CCM
-    ZOOMOUT_AREA_MASK(0,0,0,0, 0,0,0,0), // CASTLE_INSIDE  | HMC
-    ZOOMOUT_AREA_MASK(1,0,0,0, 1,0,0,0), // SSL            | BOB
-    ZOOMOUT_AREA_MASK(1,0,0,0, 1,0,0,0), // SL             | WDW
-    ZOOMOUT_AREA_MASK(0,0,0,0, 1,1,0,0), // JRB            | THI
-    ZOOMOUT_AREA_MASK(0,0,0,0, 1,0,0,0), // TTC            | RR
-    ZOOMOUT_AREA_MASK(1,0,0,0, 1,0,0,0), // CASTLE_GROUNDS | BITDW
-    ZOOMOUT_AREA_MASK(0,0,0,0, 1,0,0,0), // VCUTM          | BITFS
-    ZOOMOUT_AREA_MASK(0,0,0,0, 1,0,0,0), // SA             | BITS
-    ZOOMOUT_AREA_MASK(1,0,0,0, 0,0,0,0), // LLL            | DDD
-    ZOOMOUT_AREA_MASK(1,0,0,0, 0,0,0,0), // WF             | ENDING
-    ZOOMOUT_AREA_MASK(0,0,0,0, 0,0,0,0), // COURTYARD      | PSS
-    ZOOMOUT_AREA_MASK(0,0,0,0, 1,0,0,0), // COTMC          | TOTWC
-    ZOOMOUT_AREA_MASK(1,0,0,0, 1,0,0,0), // BOWSER_1       | WMOTR
-    ZOOMOUT_AREA_MASK(0,0,0,0, 1,0,0,0), // Unused         | BOWSER_2
-    ZOOMOUT_AREA_MASK(1,0,0,0, 0,0,0,0), // BOWSER_3       | Unused
-    ZOOMOUT_AREA_MASK(1,0,0,0, 0,0,0,0), // TTM            | Unused
-    ZOOMOUT_AREA_MASK(0,0,0,0, 0,0,0,0), // Unused         | Unused
+	ZOOMOUT_AREA_MASK(0, 0, 0, 0, 0, 0, 0, 0), // Unused         | Unused
+	ZOOMOUT_AREA_MASK(0, 0, 0, 0, 0, 0, 0, 0), // Unused         | Unused
+	ZOOMOUT_AREA_MASK(0, 0, 0, 0, 1, 0, 0, 0), // BBH            | CCM
+	ZOOMOUT_AREA_MASK(0, 0, 0, 0, 0, 0, 0, 0), // CASTLE_INSIDE  | HMC
+	ZOOMOUT_AREA_MASK(1, 0, 0, 0, 1, 0, 0, 0), // SSL            | BOB
+	ZOOMOUT_AREA_MASK(1, 0, 0, 0, 1, 0, 0, 0), // SL             | WDW
+	ZOOMOUT_AREA_MASK(0, 0, 0, 0, 1, 1, 0, 0), // JRB            | THI
+	ZOOMOUT_AREA_MASK(0, 0, 0, 0, 1, 0, 0, 0), // TTC            | RR
+	ZOOMOUT_AREA_MASK(1, 0, 0, 0, 1, 0, 0, 0), // CASTLE_GROUNDS | BITDW
+	ZOOMOUT_AREA_MASK(0, 0, 0, 0, 1, 0, 0, 0), // VCUTM          | BITFS
+	ZOOMOUT_AREA_MASK(0, 0, 0, 0, 1, 0, 0, 0), // SA             | BITS
+	ZOOMOUT_AREA_MASK(1, 0, 0, 0, 0, 0, 0, 0), // LLL            | DDD
+	ZOOMOUT_AREA_MASK(1, 0, 0, 0, 0, 0, 0, 0), // WF             | ENDING
+	ZOOMOUT_AREA_MASK(0, 0, 0, 0, 0, 0, 0, 0), // COURTYARD      | PSS
+	ZOOMOUT_AREA_MASK(0, 0, 0, 0, 1, 0, 0, 0), // COTMC          | TOTWC
+	ZOOMOUT_AREA_MASK(1, 0, 0, 0, 1, 0, 0, 0), // BOWSER_1       | WMOTR
+	ZOOMOUT_AREA_MASK(0, 0, 0, 0, 1, 0, 0, 0), // Unused         | BOWSER_2
+	ZOOMOUT_AREA_MASK(1, 0, 0, 0, 0, 0, 0, 0), // BOWSER_3       | Unused
+	ZOOMOUT_AREA_MASK(1, 0, 0, 0, 0, 0, 0, 0), // TTM            | Unused
+	ZOOMOUT_AREA_MASK(0, 0, 0, 0, 0, 0, 0, 0), // Unused         | Unused
 };
 
 STATIC_ASSERT(ARRAY_COUNT(sZoomOutAreaMasks) - 1 == LEVEL_MAX / 2, "Make sure you edit sZoomOutAreaMasks when adding / removing courses.");

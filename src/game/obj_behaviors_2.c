@@ -798,6 +798,11 @@ static void treat_far_home_as_mario(f32 threshold) {
         }
     }
 }
+// my custom behaviors
+#include "behaviors/magikoopa.inc.c"
+#include "behaviors/rex.inc.c"
+#include "behaviors/projectile.inc.c"
+#include "behaviors/boom_boom.inc.c"
 
 #include "behaviors/koopa.inc.c" // TODO: Text arg field name
 #include "behaviors/pokey.inc.c"

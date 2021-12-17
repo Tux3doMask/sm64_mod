@@ -695,6 +695,21 @@
 #define /*0x0F4*/ oKoopaShellFlameUnused                        OBJECT_FIELD_F32(0x1B)
 #define /*0x0F8*/ oKoopaShellFlameScale                         OBJECT_FIELD_F32(0x1C)
 
+/* Magikoopa */
+#define /*0x0F4*/ oCharge                           OBJECT_FIELD_S16(0x1B, 0)
+#define /*0x0F8*/ oMagikoopaCountdown               OBJECT_FIELD_S32(0x1C)
+
+/* Boom Boom */
+#define /*0x0F4*/ oBoomBoomTargetYaw                OBJECT_FIELD_S32(0x1B)
+#define /*0x0F8*/ oBoomBoomCountdown                OBJECT_FIELD_S32(0x1C)
+
+/* Rex */
+#define /*0x0F4*/ oRexTargetYaw                     OBJECT_FIELD_S32(0x1B)
+#define /*0x0F8*/ oRexCountdown                     OBJECT_FIELD_S32(0x1C)
+
+/* Magic */
+#define /*0x0F4*/ oMagicType                        OBJECT_FIELD_S16(0x1B, 0)
+
 /* Camera Lakitu */
 #define /*0x0F4*/ oCameraLakituBlinkTimer                       OBJECT_FIELD_S32(0x1B)
 #define /*0x0F8*/ oCameraLakituSpeed                            OBJECT_FIELD_F32(0x1C)

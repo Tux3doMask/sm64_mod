@@ -1271,6 +1271,37 @@
     /* Animations */
     #define KOOPA_FLAG_ANIM_WAVE                            0x0
 
+/* Magikoopa */
+	/* oAction */
+	#define MAGIKOOPA_ACT_STAND          0
+	#define MAGIKOOPA_ACT_WALK           1
+	#define MAGIKOOPA_ACT_RUN_TO_MARIO   2
+	#define MAGIKOOPA_ACT_RUN_FROM_MARIO 3
+	#define MAGIKOOPA_ACT_ATTACK_MARIO   4
+
+/* Boom Boom */
+	/* oAction */
+	#define BOOM_BOOM_ACT_STAND    0
+	#define BOOM_BOOM_ACT_WALK     1
+	#define BOOM_BOOM_ACT_SHELL    2
+	#define BOOM_BOOM_ACT_IDLE     3
+	#define BOOM_BOOM_ACT_SPIN     4
+	#define BOOM_BOOM_ACT_DIZZY    5
+	#define BOOM_BOOM_ACT_ATTACKED 6
+
+/* Rex */
+	/* oAction */
+	#define REX_ACT_STANDING 0
+	#define REX_ACT_WALKING  1
+	#define REX_ACT_CHASING  2
+	#define REX_ACT_HURT     3
+
+/* Magic */
+	/* oMagicType */
+	#define MAGIC_SHOCK 0
+	#define MAGIC_FIRE  1
+	#define MAGIC_ICE   2
+
 /* Pokey */
     /* oAction */
     #define POKEY_ACT_UNINITIALIZED                         0x0

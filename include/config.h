@@ -38,7 +38,7 @@
 // TODO: separate this into separate defines, behavior params, or make these mechanics otherwise dynamic
 // #define DISABLE_LEVEL_SPECIFIC_CHECKS
 // Disable lives and hide the lives counter
-#define DISABLE_LIVES
+//#define DISABLE_LIVES
 // Air/Breath meter is separate from health meter when underwater
 //#define BREATH_METER
 // Number of coins to spawn the "100 coin" star. If you remove the define altogether, then there won't be a 100 coin star at all.
@@ -179,13 +179,13 @@
 // The number is the intensity of the silhouette, from 0-255.
 // NOTE: The overlap between Mario's model parts is visible on certain HLE plugins.
 // Also, this also disables anti-aliasing on Mario.
-#define SILHOUETTE 127
+//#define SILHOUETTE 127
 // Makes certain objects (mainly trees) transparent when the camera gets close
 #define OBJ_OPACITY_BY_CAM_DIST
 // Fixes the game reading the ia8 burn smoke texture as an rgba16
 #define BURN_SMOKE_FIX
 // Disable the fix to Koopa's unshelled model
-#define KOOPA_KEEP_PINK_SHORTS
+//#define KOOPA_KEEP_PINK_SHORTS
 // Lightweight directional lighting engine by Fazana. Intended for giving proximity and positional pointlights to small objects.
 // NOTE: Stil breaks occasionally, and PUPPYLIGHT_NODE doesn't work in areas that aren't area 1.
 //#define PUPPYLIGHTS
